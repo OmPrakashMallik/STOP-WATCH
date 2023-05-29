@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>DIGITAL WATCH</title>
+        <link rel="stylesheet" href="dw.css">
+    </head>
+    <body onload="showTime()">
+
+
+
+
+<!-- HTML -->
+        <h1>Digital Clock</h1>
+        <p>Om Prakash Mallik<br>
+        </p>
+
+
+
+
+<!-- JAVA-SRIPT        -->
+        <script type="text/javascript">
+
+            function showTime(){
+                var t = new Date();
+                var hr = t.getHours();
+                var mt = t.getMinutes();
+                var sec  = t.getSeconds();
+                var amp = "AM";
+
+                if(hr>=12 && mt >= 0 && sec >= 0){
+                    amp = "PM";
+                }
+
+                hr = hr > 12 ? hr = hr - 12 : hr ;
+
+                hr  = hr < 10 ? "0"+hr : hr;
+                mt  = mt < 10 ? "0"+mt : mt;
+                sec  = sec < 10 ? "0"+sec : sec;
+
+                var time = hr+" : "+mt+" : "+sec+" "+amp;
+                document.getElementsByTagName('h1')[0].innerText = time;
+
+                setTimeout(showTime, 1000);
+            }
+        </script>
+
+    </body>
+</html>
